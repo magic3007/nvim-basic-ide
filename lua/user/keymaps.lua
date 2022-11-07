@@ -56,10 +56,22 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
+--   find
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", opts)
+keymap("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", opts)
+keymap("n", "<leader>tk", "<cmd> Telescope keymaps <CR>", opts)
+--  git
+keymap("n", "<leader>cm", "<cmd> Telescope git_commits <CR>", opts)
+keymap("n", "<leader>gt", "<cmd> Telescope git_status <CR>", opts)
+--  pick a hidden term
+keymap("n", "<leader>pt", "<cmd> Telescope terms <CR>", opts)
+--  theme switcher
+keymap("n", "<leader>th", "<cmd> Telescope themes <CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
