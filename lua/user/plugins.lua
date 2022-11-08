@@ -105,10 +105,11 @@ return packer.startup(function(use)
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
   -- pictures
-  use { "edluffy/hologram.nvim"}
+  use { "edluffy/hologram.nvim" }
 
   -- misc
-  use 'wakatime/vim-wakatime'
+  use { "wakatime/vim-wakatime" }
+  use { "Pocco81/auto-save.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
