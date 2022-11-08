@@ -68,10 +68,6 @@ keymap("n", "<leader>tk", "<cmd> Telescope keymaps <CR>", opts)
 --  git
 keymap("n", "<leader>cm", "<cmd> Telescope git_commits <CR>", opts)
 keymap("n", "<leader>gt", "<cmd> Telescope git_status <CR>", opts)
---  pick a hidden term
-keymap("n", "<leader>pt", "<cmd> Telescope terms <CR>", opts)
---  theme switcher
-keymap("n", "<leader>th", "<cmd> Telescope themes <CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
