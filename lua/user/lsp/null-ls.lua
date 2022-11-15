@@ -35,7 +35,7 @@ null_ls.setup {
     formatting.shfmt, -- shell formatter
 
     -- diagnostics
-    diagnostics.cspell, -- spell check
+    -- diagnostics.cspell, -- spell check
     diagnostics.flake8, -- python linter
     diagnostics.shellcheck, -- shell linter 
 
