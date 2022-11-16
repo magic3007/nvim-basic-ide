@@ -70,4 +70,4 @@ symbols_outline.setup(opts)
 -- Shorten function name
 local keymap = vim.keymap.set
 
-keymap('n', '<leader>so', ':SymbolsOutline<cr>', {silent = true, noremap = true})
+keymap('n', '<leader>y', ':SymbolsOutline<cr>', {silent = true, noremap = true})

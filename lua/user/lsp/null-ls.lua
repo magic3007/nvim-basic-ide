@@ -26,9 +26,9 @@ null_ls.setup {
       extra_filetypes = { "toml" },
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
-    formatting.clang_format.with {
-      extra_args = { "-style=file" }
-    }, -- c/c++ formatter
+    -- formatting.clang_format.with {
+    --   extra_args = { "-style=file" }
+    -- }, -- c/c++ formatter
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua, -- lua formatter
     formatting.google_java_format,
