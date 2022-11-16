@@ -41,6 +41,12 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 -- Better paste
 keymap("v", "p", '"_dP', opts)
 
+-- save file and exit vim
+keymap("n", "<leader>qq", ":xa<cr>", opts)
+
+-- save file
+keymap("n", "<leader>ss", ":w<cr>")
+
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
@@ -86,11 +92,3 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
-
--- null-ls
-if vim.fn.has("nvim-0.8")==1 then
-  -- check if nvim is 0.8 or higher
-  keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>", opts)
-else
-  keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 2000)<cr>", opts)
-end
