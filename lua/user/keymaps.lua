@@ -40,6 +40,9 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
+-- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+keymap("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', opts)
+
 
 -- save file and exit vim
 keymap("n", "<leader>qq", ":xa<cr>", opts)
