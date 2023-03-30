@@ -40,7 +40,7 @@ null_ls.setup {
     diagnostics.shellcheck, -- shell linter 
 
     -- code actions 
-    code_actions.cspell, -- spell check
+    -- code_actions.cspell, -- spell check
     code_actions.gitsigns,
     code_actions.shellcheck, -- shell script code actions
 
