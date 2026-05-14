@@ -3,6 +3,9 @@ if not status_ok then
   return
 end
 
-hologram.setup {
+local ok, _ = pcall(hologram.setup, {
   auto_display = true -- WIP automatic markdown image display, may be prone to breaking
-}
+})
+if not ok then
+  return
+end

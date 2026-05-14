@@ -4,9 +4,9 @@ local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
-    "timeout",
-    "10",
     "git",
+    "-c", "http.lowSpeedLimit=1000",
+    "-c", "http.lowSpeedTime=10",
     "clone",
     "--depth",
     "1",
@@ -117,7 +117,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
   }
-  use { "p00f/nvim-ts-rainbow" }
+  -- use { "p00f/nvim-ts-rainbow" } -- archived, incompatible with newer treesitter
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
