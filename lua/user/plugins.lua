@@ -130,7 +130,6 @@ return packer.startup(function(use)
   use { "edluffy/hologram.nvim" }
 
   -- misc
-  use { "wakatime/vim-wakatime" }
   use { "Pocco81/auto-save.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
