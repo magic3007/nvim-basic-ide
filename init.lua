@@ -1,7 +1,8 @@
 -- The plugin set is pinned to 2022 commits (see lua/user/plugins.lua for why).
--- Those plugins still call a few helpers Neovim 0.12 deprecates, which printed a
--- deprecation warning on every start. Re-provide them with identical behaviour,
--- minus the notice.
+-- Those plugins call a few helpers Neovim 0.12 deprecates, which printed a
+-- warning on every start. Re-provide them with identical behaviour, minus the
+-- notice — kept defined even once Neovim removes the deprecated originals, so
+-- the pinned plugins keep working across the upgrade.
 if vim.tbl_keys then
   vim.tbl_add_reverse_lookup = function(o)
     for _, k in ipairs(vim.tbl_keys(o)) do
@@ -27,23 +28,23 @@ if vim.islist then
 end
 
 -- Used by the pinned nvim-treesitter during setup; vim.iter(…):flatten() is the
--- non-deprecated replacement.
-if vim.tbl_flatten then
-  vim.tbl_flatten = function(t)
-    local result = {}
-    local function flatten(v)
-      for i = 1, #v do
-        local item = v[i]
-        if type(item) == 'table' then
-          flatten(item)
-        elseif item then
-          table.insert(result, item)
-        end
+-- non-deprecated replacement. Defined unconditionally: guarded by
+-- "if vim.tbl_flatten" this shim would stop being installed the moment Neovim
+-- drops the deprecated function, and the plugin call would then fail.
+vim.tbl_flatten = function(t)
+  local result = {}
+  local function flatten(v)
+    for i = 1, #v do
+      local item = v[i]
+      if type(item) == 'table' then
+        flatten(item)
+      elseif item then
+        table.insert(result, item)
       end
     end
-    flatten(t)
-    return result
   end
+  flatten(t)
+  return result
 end
 
 require("user.options")
