@@ -47,6 +47,17 @@ vim.tbl_flatten = function(t)
   return result
 end
 
+-- Neovim 0.12 dropped the *_query aliases of its tree-sitter query API, and the
+-- pinned nvim-treesitter still calls them. With indent-blankline's
+-- `use_treesitter = true`, every Python buffer raised
+--   query.lua:91: attempt to call field 'get_query' (a nil value)
+-- on each redraw. Point the removed names at the current ones; `require` hands
+-- back the same module table the plugin holds, so it sees the aliases.
+local tsq = require 'vim.treesitter.query'
+tsq.get_query = tsq.get_query or tsq.get
+tsq.parse_query = tsq.parse_query or tsq.parse
+tsq.get_query_files = tsq.get_query_files or tsq.get_files
+
 require("user.options")
 require("user.keymaps")
 require("user.plugins")
